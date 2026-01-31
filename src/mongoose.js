@@ -6,11 +6,7 @@ const logger = new Logger('Database');
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(config.mongodbUri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-
+    const conn = await mongoose.connect(config.mongodbUri);
     logger.info(`MongoDB Connected: ${conn.connection.host}`);
     return conn;
   } catch (error) {
