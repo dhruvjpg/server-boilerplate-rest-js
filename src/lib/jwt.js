@@ -16,7 +16,7 @@ class JWTUtils {
 
   verifyAccessToken(token) {
     try {
-      return jwt.verify(token, config.jwtAccessSecret);
+      return jwt.verify(token, config.jwtAccessSecret, { algorithms: ['HS256'] });
     } catch (error) {
       throw new Error('Invalid or expired access token');
     }
